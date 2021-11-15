@@ -11,3 +11,12 @@ export const getPopularMovie = async () => {
     method: "GET",
   });
 };
+
+export const getSearchMovie = async (value) => {
+  const url = `${ROOT_API}/search/movie/?api_key=${API_KEY}&query=${value}`;
+
+  return callAPI({
+    url,
+    method: "GET",
+  });
+};
