@@ -13,3 +13,7 @@
 .movie:hover .movie-over {
   @apply transform translate-y-[0%] transition duration-500;
 }
+
+.width-container {
+  @apply px-4 sm:px-8 md:px-16;
+}
