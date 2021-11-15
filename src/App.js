@@ -1,13 +1,23 @@
-import MainBanner from "./components/Banner";
-import Navbar from "./components/Header";
-import Movie from "./components/Movie";
+import React, { Suspense } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+const HomePage = React.lazy(() => import("./pages/HomePage"));
+const SearchPage = React.lazy(() => import("./pages/Searchpage"));
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <MainBanner />
-      <Movie />
+      <Suspense
+        fallback={
+          <div className="text-center text-lg flex items-center justify-center my-auto h-screen">
+            Loading...
+          </div>
+        }
+      >
+        <Router>
+          <Route exact path="/" component={HomePage}></Route>
+          <Route exact path="/search" component={SearchPage}></Route>
+        </Router>
+      </Suspense>
     </div>
   );
 }
