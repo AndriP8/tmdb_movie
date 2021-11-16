@@ -22,23 +22,26 @@ function MainBanner() {
   const API_IMG = process.env.REACT_APP_API_IMG;
 
   return (
-    <section className="h-[60vh] md:h-[90vh] relative">
-      <div className="absolute z-[-1] inset-0 h-full w-full">
-        {!movie?.backdrop_path ? (
-          <img
-            src={`${API_IMG}/${movie?.poster_path}`}
-            className="h-full w-full object-fill"
-            alt="banner"
-          />
-        ) : (
-          <img
-            src={`${API_IMG}/${movie?.backdrop_path}`}
-            className="h-full w-full object-fill"
-            alt="banner"
-          />
-        )}
+    <section className="h-[60vh] sm:h-[75vh] relative width-container">
+      <div className="flex h-full">
+        <div className="bg-medBlack absolute top-0 xl:right-[55%] lg:right-[59%] md:right-[80%]  bottom-0 left-0" />
+        <div className="lg:w-[62vw] w-full max-w-[100vw] absolute top-0 right-0 bottom-0 z-[-1]">
+          {!movie?.backdrop_path ? (
+            <img
+              src={`${API_IMG}/${movie?.poster_path}`}
+              className="h-full w-full object-fill"
+              alt="banner"
+            />
+          ) : (
+            <img
+              src={`${API_IMG}/${movie?.backdrop_path}`}
+              className="h-full w-full object-fill"
+              alt="banner"
+            />
+          )}
+        </div>
       </div>
-      <div className="px-16 w-full absolute top-5 sm:top-36 bottom-5">
+      <div className="max-w-[700px] w-full h-full hidden md:flex items-center justify-center absolute top-0">
         <div className="text-white font-roboto">
           <h2 className="text-4xl md:text-5xl font-bold">{movie?.title}</h2>
           <p className="text-lg sm:text-2xl font md:pr-40 my-6">
