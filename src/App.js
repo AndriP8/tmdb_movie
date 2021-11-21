@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-const HomePage = React.lazy(() => import("./pages/HomePage"));
-const SearchPage = React.lazy(() => import("./pages/Searchpage"));
+const HomePage = React.lazy(() => import("./pages/Home"));
+const SearchPage = React.lazy(() => import("./pages/Search"));
 
 function App() {
   return (
