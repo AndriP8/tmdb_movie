@@ -1,23 +1,21 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getPopularMovie } from "../../../services/movie";
 import { StarIcon } from "@heroicons/react/solid";
 
 function MainBanner() {
   const [movie, setMovie] = useState(null);
 
-  const getPopular = useCallback(async () => {
-    const response = await getPopularMovie();
-    const local = localStorage.getItem("banner");
-    if (local) {
-      setMovie(JSON.parse(local));
-    } else {
-      setMovie(response.data.results[0]);
-    }
-  }, []);
-
   useEffect(() => {
-    getPopular();
-  }, [getPopular]);
+    (async () => {
+      const getPopular = await getPopularMovie();
+      const local = localStorage.getItem("banner");
+      if (local) {
+        setMovie(JSON.parse(local));
+      } else {
+        setMovie(getPopular.data.results[0]);
+      }
+    })();
+  }, [movie]);
 
   const API_IMG = process.env.REACT_APP_API_IMG;
 
