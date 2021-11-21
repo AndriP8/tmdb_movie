@@ -1,18 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
-import { getPopularMovie } from "../../services/movie";
+import { useEffect, useState } from "react";
+import { getPopularMovie } from "../../../services/movie";
 import PopularMovie from "./PopularMovie";
 
 function Movie() {
   const [movie, setMovie] = useState([]);
 
-  const getPopular = useCallback(async () => {
-    const response = await getPopularMovie();
-    setMovie(response.data.results);
-  }, []);
-
   useEffect(() => {
-    getPopular();
-  }, [getPopular]);
+    (async () => {
+      const popularMovie = await getPopularMovie();
+      setMovie(popularMovie.data.results);
+    })();
+  }, []);
 
   return (
     <section className="bg-black px-16 h-full text-white">

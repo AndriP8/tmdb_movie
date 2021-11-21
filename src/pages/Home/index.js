@@ -1,6 +1,6 @@
-import MainBanner from "../components/Banner";
-import Navbar from "../components/Header";
-import Movie from "../components/HomePage";
+import MainBanner from "./HomePage/Banner";
+import Navbar from "../../components/Header";
+import Movie from "./HomePage";
 
 function HomePage() {
   return (
