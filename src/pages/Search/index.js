@@ -1,5 +1,5 @@
-import Navbar from "../components/Header";
-import Search from "../components/SearchPage";
+import Navbar from "../../components/Header";
+import Search from "./SearchPage";
 
 function SearchMovie() {
   return (
