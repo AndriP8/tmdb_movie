@@ -7,7 +7,7 @@ const callAPI = async ({ url, method, data }) => {
   const res = {
     error: false,
     message: response?.data?.message,
-    data: response.data,
+    data: response?.data,
   };
   return res;
 };

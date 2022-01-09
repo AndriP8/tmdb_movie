@@ -15,7 +15,7 @@ function MainBanner() {
         setMovie(getPopular.data.results[0]);
       }
     })();
-  }, [movie]);
+  }, []);
 
   const API_IMG = process.env.REACT_APP_API_IMG;
 
