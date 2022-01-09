@@ -26,7 +26,7 @@ function Search() {
         <div className="movies">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-end">
             {movies?.map((item) => (
-              <SearchMovie movie={item} />
+              <SearchMovie key={item?.id} movie={item} />
             ))}
           </div>
         </div>
